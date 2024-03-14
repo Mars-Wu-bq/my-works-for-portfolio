@@ -1,0 +1,156 @@
+.nav {
+  &-check-box {
+    display: none;
+
+    &:checked ~ .nav-bg {
+      transform: scale(80);
+    }
+
+    &:checked ~ .nav-list {
+      left: 50%;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    &:checked ~ .nav-btn .nav-btn-icon {
+      background-color: transparent;
+      transition: all 0s;
+    }
+
+    &:checked ~ .nav-btn .nav-btn-icon:before {
+      transform: rotate(45deg);
+      top: 0;
+    }
+
+    &:checked ~ .nav-btn .nav-btn-icon:after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+  }
+
+  &-btn,
+  &-bg {
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+    display: inline-block;
+    position: fixed;
+    top: 6rem;
+    right: 6rem;
+    background-color: $color-white;
+
+    @include respond(tab-port) {
+      top: 3rem;
+      right: 3rem;
+    }
+  }
+
+  &-btn {
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 1.5rem 3rem rgba($color-black, 0.1);
+    transition: all 0.3s;
+
+    &:hover {
+      box-shadow: 0 0.5rem 3rem rgba($color-black, 0.2);
+
+      & .nav-btn-icon::before {
+        top: -1rem;
+      }
+
+      & .nav-btn-icon::after {
+        top: 1rem;
+      }
+    }
+
+    &-icon {
+      &,
+      &::before,
+      &::after {
+        content: "";
+        display: inline-block;
+        height: 2px;
+        width: 3rem;
+        background-color: $color-grey-dark3;
+        transition: all 0.2s;
+      }
+
+      & {
+        position: absolute;
+        left: 2rem;
+        top: 3.45rem;
+      }
+
+      &::before {
+        position: absolute;
+        top: -0.9rem;
+      }
+
+      &::after {
+        position: absolute;
+        top: 0.9rem;
+      }
+    }
+  }
+
+  &-bg {
+    z-index: 5;
+    background-image: radial-gradient(
+      $color-primary-light,
+      $color-primary-dark
+    );
+    transform: scale(1);
+    transition: all 0.8s;
+  }
+
+  &-list {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+    z-index: 6;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.7s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+    li {
+      text-align: center;
+      list-style: none;
+      font-size: 3rem;
+      font-weight: 300;
+      text-transform: uppercase;
+
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+
+    a {
+      &:link,
+      &:visited {
+        display: inline-block;
+        padding: 1rem;
+        text-decoration: none;
+        color: $color-white;
+        background-image: linear-gradient(
+          120deg,
+          transparent 0%,
+          transparent 50%,
+          $color-white 50%,
+          $color-white 100%
+        );
+        background-size: 220%;
+        transition: all 0.3s;
+      }
+
+      &:hover {
+        background-position: 100%;
+        color: $color-primary;
+      }
+    }
+
+    span {
+      margin-right: 2rem;
+    }
+  }
+}

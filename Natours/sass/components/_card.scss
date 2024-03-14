@@ -1,0 +1,188 @@
+.card {
+  position: relative;
+  height: 52rem;
+
+  @include respond(touch) {
+    height: 82rem;
+    background-color: $color-white;
+  }
+
+  &:hover &-front {
+    transform: rotateY(-180deg);
+
+    @include respond(touch) {
+      transform: rotateY(0deg);
+    }
+  }
+
+  &:hover &-back {
+    transform: rotateY(0deg);
+  }
+
+  .card- {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.8s;
+    backface-visibility: hidden;
+    overflow: hidden;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+    &front {
+      background-color: $color-white;
+
+      @include respond(touch) {
+        height: 62rem;
+      }
+
+      &-picture {
+        position: relative;
+        height: 43%;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        background-size: cover;
+        background-blend-mode: screen;
+
+        &-1 {
+          background-image: linear-gradient(
+              to right bottom,
+              rgba($color-secondary-light, 0.8),
+              rgba($color-secondary-dark, 0.8)
+            ),
+            url(../img/nat-5.jpg);
+        }
+
+        &-2 {
+          background-image: linear-gradient(
+              to right bottom,
+              rgba($color-primary-light, 0.8),
+              rgba($color-primary-dark, 0.8)
+            ),
+            url(../img/nat-6.jpg);
+        }
+
+        &-3 {
+          background-image: linear-gradient(
+              to right bottom,
+              rgba($color-tertiary-light, 0.8),
+              rgba($color-tertiary-dark, 0.8)
+            ),
+            url(../img/nat-7.jpg);
+        }
+      }
+
+      &-heading {
+        text-align: right;
+        position: absolute;
+        top: 22%;
+        right: 5%;
+        text-transform: uppercase;
+        color: #fff;
+        font-weight: 300;
+        font-size: 2.6rem;
+
+        span {
+          padding: 1rem 1.4rem;
+        }
+
+        &-1 span {
+          background-image: linear-gradient(
+            to right bottom,
+            rgba($color-secondary-light, 0.85),
+            rgba($color-secondary-dark, 0.85)
+          );
+        }
+        &-2 span {
+          background-image: linear-gradient(
+            to right bottom,
+            rgba($color-primary-light, 0.85),
+            rgba($color-primary-dark, 0.85)
+          );
+        }
+        &-3 span {
+          background-image: linear-gradient(
+            to right bottom,
+            rgba($color-tertiary-light, 0.85),
+            rgba($color-tertiary-dark, 0.85)
+          );
+        }
+      }
+
+      &-list {
+        margin: 3rem 16%;
+
+        @include respond(touch) {
+          margin: 1rem 16%;
+        }
+
+        li {
+          list-style: none;
+          padding: 1rem;
+
+          &:not(:last-child) {
+            border-bottom: 1px solid #eee;
+          }
+        }
+      }
+    }
+
+    &back {
+      transform: rotateY(180deg);
+      color: $color-white;
+      text-transform: uppercase;
+
+      @include respond(touch) {
+        transform: rotateY(0deg);
+        height: 30rem;
+        top: 52rem;
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+      }
+
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      }
+
+      &-2 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-primary-light,
+          $color-primary-dark
+        );
+      }
+
+      &-3 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
+        );
+      }
+
+      &-price {
+        margin-top: 12rem;
+
+        @include respond(touch) {
+          margin-top: 7rem;
+        }
+      }
+
+      &-value {
+        font-size: 6rem;
+        font-weight: 300;
+        margin-bottom: 8rem;
+
+        @include respond(touch) {
+          margin-bottom: 3rem;
+          font-weight: 300;
+          font-size: 4rem;
+        }
+      }
+    }
+  }
+}

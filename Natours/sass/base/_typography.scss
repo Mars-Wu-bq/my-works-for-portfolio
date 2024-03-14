@@ -1,0 +1,52 @@
+.h1 {
+  color: #fff;
+  &-main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation: moveInLeft 1s ease-out;
+
+    @include respond(phone) {
+      font-size: 5rem;
+      letter-spacing: 2.3rem;
+    }
+  }
+
+  &-sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.7rem;
+    padding-right: 1.5rem;
+    animation: moveInRight 1s ease-out;
+
+    @include respond(phone) {
+      font-size: 2rem;
+      letter-spacing: 1rem;
+    }
+  }
+}
+
+.h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.2s;
+  @include gradient-text;
+
+  @include respond(phone) {
+    font-size: 2.6rem;
+  }
+
+  &:hover {
+    transform: skewX(10deg) skewY(2deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 1.5rem rgba($color-black, 0.2);
+  }
+}
+
+.h3 {
+  font-size: $default-font-size;
+  text-transform: uppercase;
+}
